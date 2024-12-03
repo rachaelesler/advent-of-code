@@ -1,0 +1,62 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name =  "py-project-toml"
+authors = [
+    {name = "Rachael Esler", email = "rachael.esler@gmail.com"},
+]
+description = "Advent of Code Solutions"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.10.1"
+dynamic = ["version"]
+
+[tool.black]
+line-length = 120
+fast = true
+
+[tool.flake8]
+max-line-length = 120
+select = "F,E,W,B,B901,B902,B903"
+exclude = [
+    ".eggs",
+    ".git",
+    ".tox",
+    "nssm",
+    "obj",
+    "out",
+    "packages",
+    "pywin32",
+    "tests",
+    "swagger_client"
+]
+ignore = [
+    "E722",
+    "B001",
+    "W503",
+    "E203"
+]
+
+[tool.pylint]
+extension-pkg-whitelist= [
+    "numpy",
+    "torch",
+    "cv2",
+    "pyodbc",
+    "pydantic",
+    "ciso8601",
+    "netcdf4",
+    "scipy"
+]
+ignore="CVS"
+ignore-patterns="test.*?py,conftest.py"
+init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
+jobs=0
+limit-inference-results=100
+persistent="yes"
+suggestion-mode="yes"
+unsafe-load-any-extension="no"
