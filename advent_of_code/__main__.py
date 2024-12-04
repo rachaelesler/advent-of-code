@@ -1,6 +1,6 @@
 """CLI entrypoint."""
 
-from advent_of_code import _cli, _version, day_one
+from advent_of_code import _cli, _version, day1, day2
 
 
 def main():
@@ -13,7 +13,8 @@ def main():
         print(_version.version_info())
         return
 
-    day_one.main()
+    day1.main()
+    day2.main()
 
 
 if __name__ == "__main__":
