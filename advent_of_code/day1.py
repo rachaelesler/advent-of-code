@@ -14,8 +14,9 @@ from advent_of_code import util, constants
 from advent_of_code.historian_list import HistorianList
 
 
-def main():
-    my_historian_list = HistorianList(constants.HISTORIAN_LIST_PATH)
+def main() -> None:
+    """Solve and print the answers."""
+    my_historian_list = HistorianList(constants.INPUT_DAY1_PATH)
     # Part one
     util.print_output_string(1, 1)
     print(my_historian_list.distance)

@@ -13,7 +13,7 @@ conda >= 24.11.0
 conda env create --file environment.yml
 conda install conda-build
 conda develop .
-conda activate advent-of-code
 
+conda activate advent-of-code
 python advent_of_code
 ```
