@@ -15,7 +15,15 @@ def arg_parser() -> argparse.ArgumentParser:
         "--version",
         dest="version",
         action="store_true",
-        help="Display tool version",
+        help="Display version and exit",
+    )
+
+    parser.add_argument(
+        "--day",
+        "-d",
+        dest="day",
+        type=int,
+        help="Specify which day to display the solution to.",
     )
 
     return parser
