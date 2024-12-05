@@ -12,7 +12,7 @@ in the right list).
 
 from advent_of_code import util
 
-INPUT_DAY1_PATH = "advent_of_code/input_day1.txt"
+INPUT_DAY1_PATH = "advent_of_code/day01/input_day01.txt"
 
 
 def main() -> None:
