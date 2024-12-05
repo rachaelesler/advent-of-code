@@ -18,7 +18,7 @@ conda install conda-build
 conda develop .
 
 conda activate advent-of-code
-python advent_of_code
+python advent_of_code --help
 ```
 
 ## Usage
