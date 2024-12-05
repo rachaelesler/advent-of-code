@@ -6,7 +6,7 @@ from advent_of_code import util
 from typing import List
 from copy import deepcopy
 
-INPUT_DAY2_PATH = "advent_of_code/input_day2.txt"
+INPUT_DAY2_PATH = "advent_of_code/day02/input_day02.txt"
 
 
 def main():

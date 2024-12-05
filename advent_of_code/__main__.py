@@ -1,6 +1,9 @@
 """CLI entrypoint."""
 
-from advent_of_code import _cli, _version, day1, day2, day3
+from advent_of_code import _cli, _version
+from advent_of_code.day01 import day01
+from advent_of_code.day02 import day02
+from advent_of_code.day03 import day03
 
 
 def main():
@@ -17,13 +20,13 @@ def main():
         raise ValueError("No day specified")
 
     if args.day == 1:
-        day1.main()
+        day01.main()
         return
     if args.day == 2:
-        day2.main()
+        day02.main()
         return
     if args.day == 3:
-        day3.main()
+        day03.main()
         return
 
     raise IndexError("No solution for specified day yet")

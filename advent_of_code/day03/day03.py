@@ -9,7 +9,7 @@ print the sum of all the multiplications.
 import re
 from advent_of_code import util
 
-INPUT_DAY3_PATH = "advent_of_code/input_day3.txt"
+INPUT_DAY3_PATH = "advent_of_code/day03/input_day03.txt"
 MUL_BRACKETS_REGEX = r"mul\(([0-9]+,[0-9]+)\)"
 DONT_INSTRUCTION = r"don't()"
 DO_INSTRUCTION = r"do()"
