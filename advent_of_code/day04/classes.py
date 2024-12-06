@@ -1,6 +1,11 @@
 from enum import Enum
 
 
+class ProblemPart(Enum):
+    ONE = 1
+    TWO = 2
+
+
 class Direction(Enum):
     RIGHT = 1
     LEFT = 2
