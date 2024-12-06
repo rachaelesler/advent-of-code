@@ -4,6 +4,9 @@ Advent of code 2024 day 3.
 Part one:
 Interpret multiplication instructions from a jumbled file of instructions and
 print the sum of all the multiplications.
+
+Part two is similar to part one except it interprets additional instructions
+to turn on/off the multiplication instructions.
 """
 
 import re
