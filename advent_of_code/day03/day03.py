@@ -20,7 +20,7 @@ DO_INSTRUCTION = r"do()"
 
 def main() -> None:
     """Calculate and print the solution to Advent of Code 2024, day 3."""
-    input_str = read_input_str(INPUT_DAY3_PATH)
+    input_str = util.file_contents_as_string(INPUT_DAY3_PATH)
     # Use regex to find all matches in the input string
     util.print_output_string(3, 1)
     print(find_and_multiply_all_mul_strings(input_str))
@@ -47,18 +47,6 @@ def solve_part_two(input_str: str) -> int:
         for instruction in instructions_to_keep:
             output += find_and_multiply_all_mul_strings(instruction)
     return output
-
-
-def read_input_str(filepath: str) -> str:
-    """Return the contents of file at `filepath` into a string."""
-    input_str = ""
-    with open(
-        filepath,
-        encoding="utf-8",
-    ) as file:
-        for line in file:
-            input_str += line
-    return input_str
 
 
 def mul_string_to_number(mul_str: str) -> int:
