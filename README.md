@@ -3,11 +3,12 @@
 My attempts for [Advent of Code](https://adventofcode.com/).
 
 
-## Development requirements
+## Development environment
 
-Conda is required.
+The following software versions were used to develop this package: 
 
-Developed with conda version 24.11.0
+* Python 3.10.15
+* Conda 24.11.0
 
 
 ## Development quickstart
