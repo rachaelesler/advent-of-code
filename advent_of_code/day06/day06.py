@@ -15,10 +15,10 @@ INPUT_FILEPATH_SMALL = "advent_of_code/day06/input_day06_small.txt"
 def main() -> None:
     """Compute and print the solution to Advent of Code 2024, day 5."""
     print_output_string(6, 1)
-    my_map = MapArea(INPUT_FILEPATH)
-    output = my_map.traverse_and_return_count()
-    # print(my_map)
-    print(output)
+    map_area = MapArea(INPUT_FILEPATH_SMALL)
+    map_area.traverse()
+    print(map_area.unique_visited_positions)
+    print(map_area)
 
 
 class Position(TypedDict):
@@ -74,6 +74,7 @@ class MapArea:
         self.curr_row = -1
         self.curr_col = -1
         self._initialise(filepath)
+        self.unique_visited_positions = 1
 
     def __str__(self):
         output = ""
@@ -97,6 +98,9 @@ class MapArea:
 
     @property
     def valid_cursors(self):
+        """Return a list of valid "cursors" (that is, ways of displaying the
+        guard's current position).
+        """
         return [
             val["cursor"] for key, val in self.guard_direction_data.items()
         ]
@@ -160,10 +164,23 @@ class MapArea:
         )
 
     def mark_position_as_visited(self, row: int, col: int) -> None:
+        """Mark the position on the map at the specified row and column with an
+        "X" to indicate it has been visited.
+        """
         self.map_area[row][col] = self.VISITED
 
-    def traverse_and_return_count(self) -> int:
-        unique_visited_positions = 1
+    def move_forward(self, cursor: str, next_row: int, next_col: int):
+        """Mark the current position as visited.
+        Move the guard to the position indicated by next_row, next_col.
+        """
+        self.map_area[self.curr_row][self.curr_col] = self.VISITED
+        self.map_area[next_row][next_col] = cursor
+        self.curr_row = next_row
+        self.curr_col = next_col
+
+    def traverse(self):
+        """Simulate the guard moving completely through the map area based on
+        the rules defined in the puzzle."""
         next_row, next_col = self.get_next_position()
         # print("\nRow\tCol\tCursor\t")
 
@@ -178,18 +195,12 @@ class MapArea:
             elif next_symbol == self.UNVISITED:
                 # Guard reaches an unvisited position
                 # Increment count and move to next position
-                unique_visited_positions += 1
-                self.map_area[self.curr_row][self.curr_col] = self.VISITED
-                self.map_area[next_row][next_col] = cursor
-                self.curr_row = next_row
-                self.curr_col = next_col
+                self.unique_visited_positions += 1
+                self.move_forward(cursor, next_row, next_col)
             elif next_symbol == self.VISITED:
                 # Guard reaches an already-visited position
                 # Move to next position without incrementing count
-                self.map_area[self.curr_row][self.curr_col] = self.VISITED
-                self.map_area[next_row][next_col] = cursor
-                self.curr_row = next_row
-                self.curr_col = next_col
+                self.move_forward(cursor, next_row, next_col)
             else:
                 raise ValueError(
                     f"Invalid symbol detected at {next_row}, {next_col}: "
@@ -199,12 +210,12 @@ class MapArea:
 
         # When execution reaches here, the guard has moved off the map
         self.mark_position_as_visited(self.curr_row, self.curr_col)
-        return unique_visited_positions
 
     def get_next_position(self):
+        """Get the next row and column that the guard should move to, based on
+        the current row and column and the current cursor.
+        """
         config: CursorConfig = self.get_cursor_config()
-        # print("Next position function")
-        # print(config["next_position_increment"]["row"])
         next_row = self.curr_row + config["next_position_increment"]["row"]
         next_col = self.curr_col + config["next_position_increment"]["col"]
         return next_row, next_col
