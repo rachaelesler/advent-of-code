@@ -162,5 +162,6 @@ cython_debug/
 #.idea/
 
 
-# Advent of Code-specific ignores
+# Ignore text files
+# These are inputs for Advent of Code and should not be redistributed
 *.txt

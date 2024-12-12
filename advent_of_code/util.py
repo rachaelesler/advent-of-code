@@ -9,13 +9,10 @@ def print_output_string(day: int, part: int):
 
 
 def file_contents_as_string(filepath: str) -> str:
-    """Return the contents of a text file as a string.
+    """Return the contents of a text file as a single-line string.
 
     Args:
         filepath (str): Path to text file
-
-    Returns:
-        str: Contents of text file as a string
     """
     input_str = ""
     with open(
