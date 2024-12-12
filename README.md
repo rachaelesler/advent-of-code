@@ -2,6 +2,8 @@
 
 Python [Advent of Code](https://adventofcode.com/) solutions.
 
+I am currently working through Advent of Code 2024. 
+
 
 ## Development environment
 
