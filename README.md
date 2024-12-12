@@ -1,6 +1,6 @@
 # advent-of-code
 
-My attempts for [Advent of Code](https://adventofcode.com/).
+Python [Advent of Code](https://adventofcode.com/) solutions.
 
 
 ## Development environment
