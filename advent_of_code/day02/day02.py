@@ -2,9 +2,10 @@
 Advent of code 2024 day 2.
 """
 
-from advent_of_code import util
-from typing import List
 from copy import deepcopy
+from typing import List
+
+from advent_of_code import util
 
 INPUT_DAY2_PATH = "advent_of_code/day02/input_day02.txt"
 

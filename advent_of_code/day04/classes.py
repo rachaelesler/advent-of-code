@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Union
 
 
 class Direction(Enum):
@@ -23,8 +24,8 @@ class SearchPath:
             direction (Direction)
         """
         self.direction = direction
-        self.row_increment: int = None
-        self.col_increment: int = None
+        self.row_increment: Union[int, None] = None
+        self.col_increment: Union[int, None] = None
         self._init_row_increment()
         self._init_col_increment()
 

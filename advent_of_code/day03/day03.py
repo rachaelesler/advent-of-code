@@ -10,6 +10,7 @@ to turn on/off the multiplication instructions.
 """
 
 import re
+
 from advent_of_code import util
 
 INPUT_DAY3_PATH = "advent_of_code/day03/input_day03.txt"
