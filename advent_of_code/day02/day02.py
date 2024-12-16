@@ -69,17 +69,15 @@ def is_report_safe(report: List[str], allow_bad_level=False) -> bool:
         if not difference_is_between_one_and_three(prev_lvl, current_lvl):
             if not allow_bad_level:
                 return False
-            return is_report_safe_without_item(
-                report, i - 1
-            ) or is_report_safe_without_item(report, i)
+            return is_report_safe_without_item(report, i - 1) or is_report_safe_without_item(
+                report, i
+            )
 
     # Finally compare last two levels not compared in loop
     if difference_is_between_one_and_three(int(report[-1]), int(report[-2])):
         return True
     elif allow_bad_level:
-        return is_report_safe_without_item(
-            report, -1
-        ) or is_report_safe_without_item(report, -2)
+        return is_report_safe_without_item(report, -1) or is_report_safe_without_item(report, -2)
     return False
 
 

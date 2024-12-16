@@ -38,9 +38,7 @@ def count_x_shaped_mas_in_wordsearch(wordsearch_arr: List) -> int:
         n_cols = len(wordsearch_arr[curr_row])
         for curr_col in range(n_cols):
             # Iterate through each position in the wordsearch
-            result = is_position_part_of_x_shaped_mas(
-                wordsearch_arr, curr_row, curr_col
-            )
+            result = is_position_part_of_x_shaped_mas(wordsearch_arr, curr_row, curr_col)
             if result.bool_value:
                 times_target_appears += 1
                 # Remove the "A" that forms part of the pattern, so we don't
@@ -80,9 +78,7 @@ def is_position_part_of_x_shaped_mas(
         ):
             # If "MAS" or "SAM" is found, check if it part of the full X
             # pattern
-            if find_second_part_of_x_shaped_mas(
-                wordsearch_arr, curr_row, curr_col, direction
-            ):
+            if find_second_part_of_x_shaped_mas(wordsearch_arr, curr_row, curr_col, direction):
                 return BoolAndSearchPath(True, search_path)
     return BoolAndSearchPath(False, None)
 
