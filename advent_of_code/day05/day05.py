@@ -44,9 +44,7 @@ class OrderingRule:
 class PageList:
     """Pages to print in a given update."""
 
-    def __init__(
-        self, page_list: List[int], ordering_rules: List[OrderingRule]
-    ):
+    def __init__(self, page_list: List[int], ordering_rules: List[OrderingRule]):
         self.page_list: List[int] = page_list
         self.in_correct_order: bool = self._follows_all_rules(ordering_rules)
 
@@ -68,9 +66,7 @@ class PageList:
         self.page_list[first_index] = self.page_list[second_index]
         self.page_list[second_index] = temp
 
-    def _follows_all_rules(
-        self, all_ordering_rules: List[OrderingRule]
-    ) -> bool:
+    def _follows_all_rules(self, all_ordering_rules: List[OrderingRule]) -> bool:
         """Return True if this PageList follows all specified ordering rules,
         False otherwise.
         """
@@ -124,9 +120,7 @@ class ProblemInput:
 
         for page_list in self.page_lists:
             if not page_list.in_correct_order:
-                sorted_page_list = merge_sort_page_list(
-                    page_list.page_list, self.ordering_rules
-                )
+                sorted_page_list = merge_sort_page_list(page_list.page_list, self.ordering_rules)
                 output += get_middle(sorted_page_list)
 
         return output
@@ -160,14 +154,10 @@ class ProblemInput:
         """Extract the list of page ordering rules from the contents of the
         input file.
         """
-        ordering_rules_as_strs = (input_file_contents.split("\n\n")[0]).split(
-            "\n"
-        )
+        ordering_rules_as_strs = (input_file_contents.split("\n\n")[0]).split("\n")
         for rule in ordering_rules_as_strs:
             [first_page, second_page] = rule.split("|")
-            self.ordering_rules.append(
-                OrderingRule(int(first_page), int(second_page))
-            )
+            self.ordering_rules.append(OrderingRule(int(first_page), int(second_page)))
 
     def _init_page_lists(self, input_file_contents: str) -> None:
         """Given the input file contents, extract the list of pages to produce
@@ -178,9 +168,7 @@ class ProblemInput:
         page_lists_as_strs = (input_file_contents.split("\n\n")[1]).split("\n")
         for a_list in page_lists_as_strs:
             self.page_lists.append(
-                PageList(
-                    string_list_to_ints(a_list.split(",")), self.ordering_rules
-                )
+                PageList(string_list_to_ints(a_list.split(",")), self.ordering_rules)
             )
 
 
@@ -192,9 +180,7 @@ def string_list_to_ints(string_list: List) -> List:
     return output
 
 
-def merge_sort_page_list(
-    a_list: List[int], ordering_rules: List[OrderingRule]
-):
+def merge_sort_page_list(a_list: List[int], ordering_rules: List[OrderingRule]):
     # Base case. A list of zero or one elements is sorted, by definition.
     if len(a_list) <= 1:
         return a_list
@@ -213,9 +199,7 @@ def split_list_in_half(a_list: List[int]):
     return a_list[:half_list_size], a_list[half_list_size:]
 
 
-def merge_page_list(
-    left: List[int], right: List[int], ordering_rules: List[OrderingRule]
-):
+def merge_page_list(left: List[int], right: List[int], ordering_rules: List[OrderingRule]):
     result = []
     while len(left) > 0 and len(right) > 0:
         if should_occur_before(left[0], right[0], ordering_rules):
