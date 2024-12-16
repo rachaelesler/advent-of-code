@@ -1,6 +1,7 @@
 """Functions for Advent of Code 2024, day 4, part 1."""
 
 from typing import List
+
 from advent_of_code.day04.classes import Direction, SearchPath
 from advent_of_code.day04.common import is_target_in_search_path
 

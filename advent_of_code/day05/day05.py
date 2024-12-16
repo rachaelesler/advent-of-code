@@ -2,10 +2,10 @@
 Solution for Advent of Code 2024, day 5.
 """
 
-from typing import List
 from dataclasses import dataclass
-from advent_of_code.util import print_output_string, file_contents_as_string
+from typing import List
 
+from advent_of_code.util import file_contents_as_string, print_output_string
 
 INPUT_FILEPATH = "advent_of_code/day05/input_day05.txt"
 INPUT_FILEPATH_SMALL = "advent_of_code/day05/input_day05_small.txt"

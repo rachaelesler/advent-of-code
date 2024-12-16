@@ -25,7 +25,8 @@ def version_info() -> str:
         "platform": platform.platform(),
     }
     return "\n".join(
-        "{:>30} {}".format(k + ":", str(v).replace("\n", " ")) for k, v in info.items()
+        "{:>30} {}".format(k + ":", str(v).replace("\n", " "))
+        for k, v in info.items()
     )
 
 
