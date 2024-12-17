@@ -7,6 +7,7 @@ from advent_of_code.day03 import day03
 from advent_of_code.day04 import day04
 from advent_of_code.day05 import day05
 from advent_of_code.day06 import day06
+from advent_of_code.day07 import day07
 
 
 def main():
@@ -39,6 +40,9 @@ def main():
         return
     if args.day == 6:
         day06.main()
+        return
+    if args.day == 7:
+        day07.main()
         return
 
     raise IndexError("No solution for specified day yet")
