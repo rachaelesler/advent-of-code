@@ -110,12 +110,12 @@ class MapArea:
         # that would result in the guard being stuck in a loop
         self.good_obstacle_positions = 0
         # Possible obstacle positions is a list of (row, column) tuples
-        self.possible_obstacle_positions = []
+        self.possible_obstacle_positions: List = []
 
         # self.visited_position_history represents a grid that is the same size
         # as the map area. It stores the cursor we used when we visited each
         # position.
-        self.visited_position_history = []
+        self.visited_position_history: List = []
         for row_idx in range(len(self.map_area)):
             self.visited_position_history.append([[] for _ in range(len(self.map_area[row_idx]))])
 
